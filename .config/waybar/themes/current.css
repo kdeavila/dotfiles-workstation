@@ -1,15 +1,15 @@
 /* GENERADO desde ~/.config/theme/tokens.conf — no editar a mano */
-@define-color base          #111318;
-@define-color surface       #1c2027;
-@define-color elevated      #272c34;
-@define-color text          #dfe3e8;
-@define-color text_dim      #9aa1ab;
-@define-color text_faint    #7b828d;
-@define-color fill          #f2f4f6;
-@define-color on_fill       #111318;
+@define-color base          #0c0d10;
+@define-color surface       #16171b;
+@define-color elevated      #1f2024;
+@define-color text          #e3e4e8;
+@define-color text_dim      #9b9ca3;
+@define-color text_faint    #7d7e85;
+@define-color fill          #f2f3f5;
+@define-color on_fill       #0c0d10;
 @define-color accent        #6ea8fe;
 @define-color on_accent     #0d0f13;
 @define-color warning       #d9a25f;
 @define-color urgent        #e5686f;
-@define-color border        #333a44;
-@define-color border_active #6b7787;
+@define-color border        #292a2f;
+@define-color border_active #66666e;
