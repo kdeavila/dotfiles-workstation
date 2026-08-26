@@ -1,0 +1,18 @@
+# kanshi — perfiles automáticos de monitores
+# Aplica el PRIMER perfil cuyas salidas estén todas conectadas.
+# Para arreglos manuales: nwg-displays (GUI) o `hyprctl keyword monitor ...`
+
+profile tv-4k {
+    output eDP-1 enable scale 1.2 position 0,0
+    output HDMI-A-1 mode 3840x2160 scale 1.5 position 1600,0
+}
+
+profile solo-laptop {
+    output eDP-1 enable scale 1.2 position 0,0
+}
+
+# Espejo (si lo quieres algún día): ambos a 1080p en la misma posición
+# profile espejo {
+#     output eDP-1 enable mode 1920x1080 scale 1.2 position 0,0
+#     output HDMI-A-1 enable mode 1920x1080 scale 1.2 position 0,0
+# }
