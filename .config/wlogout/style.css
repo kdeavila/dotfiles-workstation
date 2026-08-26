@@ -1,0 +1,54 @@
+@import "colors.css";
+
+/* wlogout — Power Menu
+   GENERADO a mano desde tokens: consume SOLO variables de colors.css
+   (regenerado por ~/.config/theme/apply-theme.sh). Nada hardcodeado.
+*/
+
+* {
+    border-radius: 10px;
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    outline-width: 0;
+}
+
+window {
+    background-color: alpha(@base, 0.94);
+    border: 1px solid @border;
+}
+
+button {
+    background-repeat: no-repeat;
+    background-position: center 32%;
+    background-size: 22%;
+    background-color: alpha(@surface, 0.85);
+    color: @text;
+    border: 1px solid @border;
+    margin: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: all 150ms ease-in-out;
+}
+
+button:hover {
+    background-color: @elevated;
+    border-color: @accent;
+    color: @accent;
+}
+
+button:focus {
+    background-color: @elevated;
+    border-color: @accent;
+    color: @accent;
+}
+
+/* Iconos: sin estas reglas wlogout muestra los botones SOLO con texto */
+#lock      { background-image: image(url("/usr/share/wlogout/icons/lock.png")); }
+#logout    { background-image: image(url("/usr/share/wlogout/icons/logout.png")); }
+#suspend   { background-image: image(url("/usr/share/wlogout/icons/suspend.png")); }
+#hibernate { background-image: image(url("/usr/share/wlogout/icons/hibernate.png")); }
+#shutdown  { background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }
+#reboot    { background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }

@@ -1,0 +1,126 @@
+@import "themes/current.css";
+
+/* =============================================================================
+   Barra de cristal — énfasis por INVERSIÓN (relleno blanco), no por color.
+   Translúcida con blur. Pegada al borde, ancho completo, fina.
+   ============================================================================= */
+
+* {
+    border: none;
+    border-radius: 0;
+    /* Inter para el texto (equivalente libre de SF Pro), Nerd Font para glifos */
+    font-family: "SF Pro Display", "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    min-height: 0;
+}
+
+/* CRISTAL: translúcida. El blur lo aplica la layerrule de Hyprland. */
+window#waybar {
+    /* 0.35 = cristal maximo (preferencia del usuario).
+       Ojo: sobre wallpaper CLARO el texto blanco baja a ~2.6:1. Si eliges uno
+       oscuro no hay coste; si eliges uno claro, sube este valor a 0.70. */
+    background-color: alpha(@base, 0.35);
+    color: @text;
+}
+
+/* ---------- LOGO ---------- */
+#custom-logo {
+    color: @text;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 18px;
+    padding: 0 10px 0 14px;
+}
+
+#custom-logo:hover { color: @fill; }
+
+/* ---------- WORKSPACES ---------- */
+#workspaces {
+    background: transparent;
+    padding: 0 2px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    margin: 3px 2px;
+    background-color: transparent;
+    color: @text;
+    border-radius: 999px;
+    font-weight: 500;
+}
+
+#workspaces button:hover {
+    background-color: alpha(@fill, 0.15);
+}
+
+/* EL ÉNFASIS: relleno blanco, texto oscuro. Invertido, sin color. */
+#workspaces button.active {
+    background-color: @fill;
+    color: @on_fill;
+    font-weight: 700;
+    padding: 0 13px;
+}
+
+#workspaces button.urgent {
+    background-color: @urgent;
+    color: @on_fill;
+}
+
+/* ---------- APLICACIÓN ACTIVA ---------- */
+#window {
+    color: alpha(@text, 0.75);
+    padding: 0 10px;
+    font-weight: 500;
+}
+
+window#waybar.empty #window { padding: 0; margin: 0; }
+
+/* ---------- FECHA: la segunda caja blanca ---------- */
+#clock.date {
+    background-color: @fill;
+    color: @on_fill;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0 12px;
+    margin: 3px 4px 3px 6px;
+}
+
+/* ---------- HORA: texto plano ---------- */
+#clock.time {
+    color: @text;
+    font-weight: 600;
+    padding: 0 12px 0 4px;
+}
+
+/* ---------- MÓDULOS DE ESTADO: blanco atenuado, sin cajas ---------- */
+/* Solo iconos, sin texto. Blancos, con cuerpo — como la referencia. */
+#cpu, #memory, #pulseaudio, #network, #bluetooth,
+#battery, #tray, #custom-power {
+    background-color: transparent;
+    color: @text;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 17px;
+    font-weight: 700;
+    padding: 0 8px;
+}
+
+/* cpu y ram estan vacios salvo cuando superan el umbral:
+   sin padding para que no dejen hueco fantasma */
+#cpu, #memory { padding: 0; }
+#cpu.high, #memory.high { padding: 0 7px; }
+
+#cpu:hover, #memory:hover, #pulseaudio:hover, #network:hover,
+#bluetooth:hover, #battery:hover, #custom-power:hover {
+    color: @text;
+}
+
+/* Estados: el color solo aparece cuando algo va mal */
+#network.disconnected { color: @urgent; }
+#battery.warning      { color: @warning; }
+#battery.critical     { color: @urgent; font-weight: 700; }
+
+#tray { padding: 0 6px; }
+#tray menu { background-color: @surface; color: @text; }
+
+#custom-power { padding: 0 14px 0 8px; }
+#custom-power:hover { color: @urgent; }

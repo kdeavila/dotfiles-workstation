@@ -1,0 +1,22 @@
+{
+  "name": "workstation-theme",
+  "displayName": "Workstation",
+  "description": "Tema generado desde ~/.config/theme/tokens.conf — no editar a mano",
+  "publisher": "keyner",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Workstation",
+        "uiTheme": "vs-dark",
+        "path": "./themes/workstation-color-theme.json"
+      }
+    ]
+  }
+}

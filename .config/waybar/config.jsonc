@@ -1,0 +1,173 @@
+// Waybar — barra de cristal, monocroma, enfasis por inversion.
+// Colores: ~/.config/waybar/themes/current.css (generado desde theme/tokens.conf)
+// OJO: los glifos Nerd Font se guardan como CARACTER, nunca como escape \U (JSON no lo admite).
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "spacing": 0,
+    "modules-left": [
+        "custom/logo",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "network",
+        "bluetooth",
+        "battery",
+        "power-profiles-daemon",
+        "tray",
+        "clock#date",
+        "clock#time",
+        "custom/power"
+    ],
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "on-click": "activate"
+    },
+    "hyprland/window": {
+        "format": "{class}",
+        "max-length": 30,
+        "separate-outputs": true,
+        "rewrite": {
+            "com.mitchellh.ghostty": "Ghostty",
+            "[Cc]ode(-oss)?": "Visual Studio Code",
+            "firefox": "Firefox",
+            "brave-browser": "Brave",
+            "brave-.*": "Brave",
+            "(.{28}).*": "$1…",
+            "org.kde.dolphin": "Dolphin",
+            "kitty": "Kitty",
+            "": ""
+        }
+    },
+    "custom/logo": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "vicinae toggle"
+    },
+    "clock#date": {
+        "format": "{:%a %d %b}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#dfe3e8'><b>{}</b></span>",
+                "days": "<span color='#9aa1ab'>{}</span>",
+                "weeks": "<span color='#7b828d'>W{}</span>",
+                "weekdays": "<span color='#7b828d'>{}</span>",
+                "today": "<span color='#6ea8fe'><b>{}</b></span>"
+            }
+        }
+    },
+    "clock#time": {
+        "format": "{:%H:%M}",
+        "tooltip": false
+    },
+    "cpu": {
+        "interval": 3,
+        "states": {
+            "high": 80
+        },
+        "format": "",
+        "format-high": "󰻠 {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 3,
+        "states": {
+            "high": 85
+        },
+        "format": "",
+        "format-high": "󰍛 {percentage}%",
+        "tooltip-format": "RAM {used:0.1f} / {total:0.1f} GiB"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "tooltip-format": "{desc}\n{volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "swayosd-client --output-volume mute-toggle",
+        "scroll-step": 2
+    },
+    "network": {
+        "format-wifi": "󰤨",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "tooltip-format-wifi": "{essid}  {signalStrength}%\n{ipaddr}",
+        "tooltip-format-ethernet": "{ipaddr}",
+        "tooltip-format-disconnected": "Sin red",
+        "on-click": "nm-connection-editor"
+    },
+    "bluetooth": {
+        "format": "󰂯",
+        "format-connected": "󰂱",
+        "format-disabled": "󰂲",
+        "tooltip-format": "{controller_alias}",
+        "tooltip-format-connected": "{controller_alias}\n{device_alias}",
+        "on-click": "blueman-manager"
+    },
+    "battery": {
+        "states": {
+            "warning": 25,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "format-charging": "{icon} 󱐋",
+        "format-plugged": "{icon} 󰚥",
+        "tooltip-format": "{capacity}%  {timeTo}"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Energia: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 12
+    },
+    "custom/power": {
+        "format": "󰐥",
+        "tooltip": false,
+        "on-click": "wlogout"
+    }
+}

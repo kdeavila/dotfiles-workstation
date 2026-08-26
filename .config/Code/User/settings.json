@@ -1,0 +1,72 @@
+{
+  "workbench.colorTheme": "Workstation",
+  "editor.cursorBlinking": "expand",
+  "editor.linkedEditing": true,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace",
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "editor.minimap.enabled": false,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+  },
+  "workbench.activityBar.location": "hidden",
+  "workbench.sideBar.location": "right",
+  "workbench.tips.enabled": false,
+  "workbench.editor.showTabs": "single",
+  "workbench.startupEditor": "none",
+  "material-icon-theme.hidesExplorerArrows": true,
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.tree.indent": 8,
+  "explorer.compactFolders": false,
+  "explorer.decorations.badges": false,
+  "workbench.statusBar.visible": false,
+  "chat.commandCenter.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "editor.stickyScroll.enabled": false,
+  "workbench.navigationControl.enabled": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "workbench.layoutControl.enabled": false,
+  "files.autoSave": "afterDelay",
+  "window.menuBarVisibility": "toggle",
+  "chat.mcp.apps.enabled": true,
+  "chat.mcp.discovery.enabled": {
+    "claude-desktop": false,
+    "windsurf": false,
+    "cursor-global": false,
+    "cursor-workspace": false
+  },
+  "chat.mcp.access": "all",
+  "chat.viewSessions.orientation": "stacked",
+  "window.commandCenter": false,
+  "workbench.iconTheme": "icons",
+  "window.titleBarStyle": "native",
+  "editor.selectionClipboard": false,
+  "terminal.integrated.copyOnSelection": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "update.showReleaseNotes": false,
+}

@@ -1,0 +1,354 @@
+# Preset: Jetpack (https://starship.rs/presets/jetpack)
+# Paleta: workstation — GENERADA desde ~/.config/theme/tokens.conf
+# por apply-theme.sh (bloque starship). No editar a mano la paleta.
+# version: 1.0.0
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+continuation_prompt = "[▸▹ ](color_dim)"
+
+format = """($nix_shell$container$fill$git_metrics\n)$cmd_duration\
+$hostname\
+$localip\
+$shlvl\
+$shell\
+$env_var\
+$jobs\
+$sudo\
+$username\
+$character"""
+
+right_format = """
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$fossil_branch\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+$c\
+$cpp\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$fortran\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$maven\
+$nim\
+$nodejs\
+$bun\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$xmake\
+$zig\
+$buf\
+$conda\
+$pixi\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$crystal\
+$custom\
+$status\
+$os\
+$battery\
+$time"""
+
+palette = 'workstation'
+
+[palettes.workstation]
+color_fg0 = '#111318'
+color_on_accent = '#0d0f13'
+color_fill = '#f2f4f6'
+color_surface = '#1c2027'
+color_elevated = '#272c34'
+color_border = '#333a44'
+color_text = '#dfe3e8'
+color_dim = '#9aa1ab'
+color_accent = '#6ea8fe'
+color_green = '#8fc98a'
+color_red = '#e5686f'
+color_yellow = '#d9a25f'
+color_purple = '#b49ae0'
+color_cyan = '#77c2c9'
+[fill]
+symbol = ' '
+
+[character]
+format = "$symbol "
+success_symbol = "[◎](bold italic color_yellow)"
+error_symbol = "[○](italic color_red)"
+vimcmd_symbol = "[■](italic color_dim)"
+# not supported in zsh
+vimcmd_replace_one_symbol = "◌"
+vimcmd_replace_symbol = "□"
+vimcmd_visual_symbol = "▼"
+
+[env_var.VIMSHELL]
+format = "[$env_value]($style)"
+style = 'color_green italic'
+
+[sudo]
+format = "[$symbol]($style)"
+style = "bold italic color_purple"
+symbol = "⋈┈"
+disabled = false
+
+[username]
+style_user = "color_yellow bold italic"
+style_root = "color_purple bold italic"
+format = "[⭘ $user]($style) "
+disabled = false
+show_always = false
+
+[directory]
+home_symbol = "⌂"
+truncation_length = 2
+truncation_symbol = "□ "
+read_only = " ◈"
+use_os_path_sep = true
+style = "italic color_accent"
+format = '[$path]($style)[$read_only]($read_only_style)'
+repo_root_style = 'bold color_accent'
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) [△](bold color_accent)'
+
+[cmd_duration]
+format = "[◄ $duration ](italic color_dim)"
+
+[jobs]
+format = "[$symbol$number]($style) "
+style = "color_text"
+symbol = "[▶](color_accent italic)"
+
+[localip]
+ssh_only = true
+format = " ◯[$localipv4](bold color_purple)"
+disabled = false
+
+[time]
+disabled = false
+format = "[ $time]($style)"
+time_format = "%R"
+utc_time_offset = "local"
+style = "italic color_dim"
+
+[battery]
+format = "[ $percentage $symbol]($style)"
+full_symbol = "█"
+charging_symbol = "[↑](italic bold color_green)"
+discharging_symbol = "↓"
+unknown_symbol = "░"
+empty_symbol = "▃"
+
+[[battery.display]]
+threshold = 20
+style = "italic bold color_red"
+
+[[battery.display]]
+threshold = 60
+style = "italic dimmed color_purple"
+
+[[battery.display]]
+threshold = 70
+style = "italic dimmed color_yellow"
+
+[git_branch]
+format = " [$branch(:$remote_branch)]($style)"
+symbol = "[△](bold italic color_accent)"
+style = "italic color_accent"
+truncation_symbol = "⋯"
+truncation_length = 11
+ignore_branches = ["main", "master"]
+only_attached = true
+
+[git_metrics]
+format = '([▴$added]($added_style))([▿$deleted]($deleted_style))'
+added_style = 'italic dimmed color_green'
+deleted_style = 'italic dimmed color_red'
+ignore_submodules = true
+disabled = false
+
+[git_status]
+style = "bold italic color_accent"
+format = "([⎪$ahead_behind$staged$modified$untracked$renamed$deleted$conflicted$stashed⎥]($style))"
+conflicted = "[◪◦](italic color_purple)"
+ahead = "[▴│[${count}](bold color_text)│](italic color_green)"
+behind = "[▿│[${count}](bold color_text)│](italic color_red)"
+diverged = "[◇ ▴┤[${ahead_count}](color_text)│▿┤[${behind_count}](color_text)│](italic color_purple)"
+untracked = "[◌◦](italic color_yellow)"
+stashed = "[◃◈](italic color_dim)"
+modified = "[●◦](italic color_yellow)"
+staged = "[▪┤[$count](bold color_text)│](italic color_cyan)"
+renamed = "[◎◦](italic color_accent)"
+deleted = "[✕](italic color_red)"
+
+[deno]
+format = " [deno](italic) [∫ $version](color_green bold)"
+version_format = "${raw}"
+
+[lua]
+format = " [lua](italic) [${symbol}${version}]($style)"
+version_format = "${raw}"
+symbol = "⨀ "
+style = "bold color_yellow"
+
+[nodejs]
+format = " [node](italic) [◫ ($version)](bold color_green)"
+version_format = "${raw}"
+detect_files = ["package-lock.json", "yarn.lock"]
+detect_folders = ["node_modules"]
+detect_extensions = []
+
+[bun]
+format = " [bun](italic) [◫ ($version)](bold color_green)"
+version_format = "${raw}"
+
+[python]
+format = " [py](italic) [${symbol}${version}]($style)"
+symbol = "[⌉](bold color_accent)⌊ "
+version_format = "${raw}"
+style = "bold color_yellow"
+
+[ruby]
+format = " [rb](italic) [${symbol}${version}]($style)"
+symbol = "◆ "
+version_format = "${raw}"
+style = "bold color_red"
+
+[rust]
+format = " [rs](italic) [$symbol$version]($style)"
+symbol = "⊃ "
+version_format = "${raw}"
+style = "bold color_red"
+
+[package]
+format = " [pkg](italic dimmed) [$symbol$version]($style)"
+version_format = "${raw}"
+symbol = "◨ "
+style = "dimmed color_yellow italic bold"
+
+[swift]
+format = " [sw](italic) [${symbol}${version}]($style)"
+symbol = "◁ "
+style = "bold color_red"
+version_format = "${raw}"
+
+[aws]
+disabled = true
+format = " [aws](italic) [$symbol $profile $region]($style)"
+style = "bold color_accent"
+symbol = "▲ "
+
+[buf]
+symbol = "■ "
+format = " [buf](italic) [$symbol $version $buf_version]($style)"
+
+[c]
+symbol = "ℂ "
+format = " [$symbol($version(-$name))]($style)"
+
+[cpp]
+symbol = "ℂ "
+format = " [$symbol($version(-$name))]($style)"
+
+[conda]
+symbol = "◯ "
+format = " conda [$symbol$environment]($style)"
+
+[pixi]
+symbol = "■ "
+format = " pixi [$symbol$version ($environment )]($style)"
+
+[dart]
+symbol = "◁◅ "
+format = " dart [$symbol($version )]($style)"
+
+[docker_context]
+symbol = "◧ "
+format = " docker [$symbol$context]($style)"
+
+[elixir]
+symbol = "△ "
+format = " exs [$symbol $version OTP $otp_version ]($style)"
+
+[elm]
+symbol = "◩ "
+format = " elm [$symbol($version )]($style)"
+
+[golang]
+symbol = "∩ "
+format = " go [$symbol($version )]($style)"
+
+[haskell]
+symbol = "❯λ "
+format = " hs [$symbol($version )]($style)"
+
+[java]
+symbol = "∪ "
+format = " java [${symbol}(${version} )]($style)"
+
+[julia]
+symbol = "◎ "
+format = " jl [$symbol($version )]($style)"
+
+[memory_usage]
+symbol = "▪▫▪ "
+format = " mem [${ram}( ${swap})]($style)"
+
+[nim]
+symbol = "▴▲▴ "
+format = " nim [$symbol($version )]($style)"
+
+[nix_shell]
+style = 'bold italic dimmed color_accent'
+symbol = '✶'
+format = '[$symbol nix⎪$state⎪]($style) [$name](italic color_dim)'
+impure_msg = '[⌽](bold dimmed color_red)'
+pure_msg = '[⌾](bold dimmed color_green)'
+unknown_msg = '[◌](bold dimmed color_yellow)'
+
+[spack]
+symbol = "◇ "
+format = " spack [$symbol$environment]($style)"

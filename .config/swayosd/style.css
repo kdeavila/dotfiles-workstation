@@ -1,0 +1,75 @@
+/* GENERADO desde ~/.config/theme/tokens.conf — no editar a mano */
+@define-color base #111318;
+@define-color surface #1c2027;
+@define-color elevated #272c34;
+@define-color text #dfe3e8;
+@define-color text_dim #9aa1ab;
+@define-color accent #6ea8fe;
+@define-color urgent #e5686f;
+@define-color border #333a44;
+
+* {
+    outline-width: 0;
+}
+
+window#osd {
+    border: none;
+    background: alpha(@base, 0.88);
+    border-radius: 999px;
+    padding: 6px 10px;
+}
+
+window#osd #container {
+    margin: 4px;
+}
+
+/* Icono: nítido, sin transformaciones que lo degraden */
+window#osd image {
+    color: @text;
+    margin-right: 10px;
+}
+
+window#osd label {
+    color: @text_dim;
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 14px;
+}
+
+/* Barra fina tipo HUD de macOS */
+window#osd progressbar,
+window#osd segmentedprogress {
+    min-height: 5px;
+    min-width: 110px;
+    border-radius: 999px;
+    background: transparent;
+    border: none;
+}
+
+window#osd trough,
+window#osd segment {
+    min-height: inherit;
+    border-radius: inherit;
+    border: none;
+    background: alpha(@text, 0.22);
+}
+
+window#osd progress,
+window#osd segment.active {
+    min-height: inherit;
+    border-radius: inherit;
+    border: none;
+    background: @text;
+}
+
+window#osd segment {
+    margin-left: 5px;
+}
+
+window#osd segment:first-child {
+    margin-left: 0;
+}
+
+window#osd progressbar:disabled,
+window#osd image:disabled {
+    opacity: 0.45;
+}

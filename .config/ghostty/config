@@ -1,0 +1,14 @@
+# Tema estación de trabajo (generado desde ~/.config/theme/tokens.conf)
+config-file = theme.conf
+font-family = "JetBrainsMono Nerd Font"
+font-size = 13
+
+# Auto copy to clipboard on selection
+copy-on-select = clipboard
+
+# Split resizing with Alt + Shift + Arrows
+keybind = alt+shift+arrow_up=resize_split:up,10
+keybind = alt+shift+arrow_down=resize_split:down,10
+keybind = alt+shift+arrow_left=resize_split:left,10
+keybind = alt+shift+arrow_right=resize_split:right,10
+keybind = alt+shift+equal=equalize_splits
