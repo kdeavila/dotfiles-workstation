@@ -54,6 +54,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # 2. hacer checkout (mueve o borra antes los configs que choquen)
 config checkout
 config config --local status.showUntrackedFiles no
+config config --local core.excludesFile "$HOME/.cfg/gitignore"
 
 # 3. regenerar todo desde tokens y aplicar
 ~/.config/theme/apply-theme.sh
