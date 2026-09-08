@@ -1,354 +1,148 @@
-# Preset: Jetpack (https://starship.rs/presets/jetpack)
-# Paleta: workstation — GENERADA desde ~/.config/theme/tokens.conf
-# por apply-theme.sh (bloque starship). No editar a mano la paleta.
-# version: 1.0.0
-"$schema" = 'https://starship.rs/config-schema.json'
+palette = "noctalia"
+# Don't print a new line at the start of the prompt
+add_newline = false
+# Pipes ╰─ ╭─
+# Powerline symbols                                     
+# Wedges 🭧🭒 🭣🭧🭓
+# Random noise 🬖🬥🬔🬗
+# Cool stuff 󰜥   
 
-add_newline = true
-continuation_prompt = "[▸▹ ](color_dim)"
+# format = """
+# $directory $fill $git_branch $cmd_duration
+#  $character"""
+format = """
+$cmd_duration $directory$git_branch
+  $character"""
 
-format = """($nix_shell$container$fill$git_metrics\n)$cmd_duration\
-$hostname\
-$localip\
-$shlvl\
-$shell\
-$env_var\
-$jobs\
-$sudo\
-$username\
-$character"""
-
-right_format = """
-$singularity\
-$kubernetes\
-$directory\
-$vcsh\
-$fossil_branch\
-$git_branch\
-$git_commit\
-$git_state\
-$git_status\
-$hg_branch\
-$pijul_channel\
-$docker_context\
-$package\
-$c\
-$cpp\
-$cmake\
-$cobol\
-$daml\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$fennel\
-$fortran\
-$golang\
-$guix_shell\
-$haskell\
-$haxe\
-$helm\
-$java\
-$julia\
-$kotlin\
-$gradle\
-$lua\
-$maven\
-$nim\
-$nodejs\
-$bun\
-$ocaml\
-$opa\
-$perl\
-$php\
-$pulumi\
-$purescript\
-$python\
-$raku\
-$rlang\
-$red\
-$ruby\
-$rust\
-$scala\
-$solidity\
-$swift\
-$terraform\
-$vlang\
-$vagrant\
-$xmake\
-$zig\
-$buf\
-$conda\
-$pixi\
-$meson\
-$spack\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
-$crystal\
-$custom\
-$status\
-$os\
-$battery\
-$time"""
-
-palette = 'workstation'
-
-[palettes.workstation]
-color_fg0 = '#0c0d10'
-color_on_accent = '#0d0f13'
-color_fill = '#f2f3f5'
-color_surface = '#16171b'
-color_elevated = '#1f2024'
-color_border = '#292a2f'
-color_text = '#e3e4e8'
-color_dim = '#9b9ca3'
-color_accent = '#6ea8fe'
-color_green = '#8fc98a'
-color_red = '#e5686f'
-color_yellow = '#d9a25f'
-color_purple = '#b49ae0'
-color_cyan = '#77c2c9'
 [fill]
-symbol = ' '
+symbol = '-'
+style = 'fg:245'
 
-[character]
-format = "$symbol "
-success_symbol = "[◎](bold italic color_yellow)"
-error_symbol = "[○](italic color_red)"
-vimcmd_symbol = "[■](italic color_dim)"
-# not supported in zsh
-vimcmd_replace_one_symbol = "◌"
-vimcmd_replace_symbol = "□"
-vimcmd_visual_symbol = "▼"
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[ ](bold fg:243)"
+error_symbol = "[ ](bold fg:244)"
 
-[env_var.VIMSHELL]
-format = "[$env_value]($style)"
-style = 'color_green italic'
-
-[sudo]
-format = "[$symbol]($style)"
-style = "bold italic color_purple"
-symbol = "⋈┈"
-disabled = false
-
-[username]
-style_user = "color_yellow bold italic"
-style_root = "color_purple bold italic"
-format = "[⭘ $user]($style) "
-disabled = false
-show_always = false
-
-[directory]
-home_symbol = "⌂"
-truncation_length = 2
-truncation_symbol = "□ "
-read_only = " ◈"
-use_os_path_sep = true
-style = "italic color_accent"
-format = '[$path]($style)[$read_only]($read_only_style)'
-repo_root_style = 'bold color_accent'
-repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) [△](bold color_accent)'
-
-[cmd_duration]
-format = "[◄ $duration ](italic color_dim)"
-
-[jobs]
-format = "[$symbol$number]($style) "
-style = "color_text"
-symbol = "[▶](color_accent italic)"
-
-[localip]
-ssh_only = true
-format = " ◯[$localipv4](bold color_purple)"
-disabled = false
-
-[time]
-disabled = false
-format = "[ $time]($style)"
-time_format = "%R"
-utc_time_offset = "local"
-style = "italic color_dim"
-
-[battery]
-format = "[ $percentage $symbol]($style)"
-full_symbol = "█"
-charging_symbol = "[↑](italic bold color_green)"
-discharging_symbol = "↓"
-unknown_symbol = "░"
-empty_symbol = "▃"
-
-[[battery.display]]
-threshold = 20
-style = "italic bold color_red"
-
-[[battery.display]]
-threshold = 60
-style = "italic dimmed color_purple"
-
-[[battery.display]]
-threshold = 70
-style = "italic dimmed color_yellow"
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
 
 [git_branch]
-format = " [$branch(:$remote_branch)]($style)"
-symbol = "[△](bold italic color_accent)"
-style = "italic color_accent"
-truncation_symbol = "⋯"
-truncation_length = 11
-ignore_branches = ["main", "master"]
-only_attached = true
+style = "bg: 252"
+symbol = "󰘬"
+truncation_length = 12
+truncation_symbol = ""
+format = " 󰜥 [](bold fg:252)[$symbol $branch(:$remote_branch)](fg:235 bg:252)[ ](bold fg:252)"
 
-[git_metrics]
-format = '([▴$added]($added_style))([▿$deleted]($deleted_style))'
-added_style = 'italic dimmed color_green'
-deleted_style = 'italic dimmed color_red'
-ignore_submodules = true
-disabled = false
+[git_commit]
+commit_hash_length = 4
+tag_symbol = " "
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
 
 [git_status]
-style = "bold italic color_accent"
-format = "([⎪$ahead_behind$staged$modified$untracked$renamed$deleted$conflicted$stashed⎥]($style))"
-conflicted = "[◪◦](italic color_purple)"
-ahead = "[▴│[${count}](bold color_text)│](italic color_green)"
-behind = "[▿│[${count}](bold color_text)│](italic color_red)"
-diverged = "[◇ ▴┤[${ahead_count}](color_text)│▿┤[${behind_count}](color_text)│](italic color_purple)"
-untracked = "[◌◦](italic color_yellow)"
-stashed = "[◃◈](italic color_dim)"
-modified = "[●◦](italic color_yellow)"
-staged = "[▪┤[$count](bold color_text)│](italic color_cyan)"
-renamed = "[◎◦](italic color_accent)"
-deleted = "[✕](italic color_red)"
+conflicted = " 🏳 "
+ahead = " 🏎💨 "
+behind = " 😰 "
+diverged = " 😵 "
+untracked = " 🤷 ‍"
+stashed = " 📦 "
+modified = " 📝 "
+staged = '[++\($count\)](green)'
+renamed = " ✍️ "
+deleted = " 🗑 "
 
-[deno]
-format = " [deno](italic) [∫ $version](color_green bold)"
-version_format = "${raw}"
+[hostname]
+ssh_only = false
+format =  "[•$hostname](bg:252 bold fg:235)[](bold fg:252)"
+trim_at = ".companyname.com"
+disabled = false
 
-[lua]
-format = " [lua](italic) [${symbol}${version}]($style)"
-version_format = "${raw}"
-symbol = "⨀ "
-style = "bold color_yellow"
-
-[nodejs]
-format = " [node](italic) [◫ ($version)](bold color_green)"
-version_format = "${raw}"
-detect_files = ["package-lock.json", "yarn.lock"]
-detect_folders = ["node_modules"]
-detect_extensions = []
-
-[bun]
-format = " [bun](italic) [◫ ($version)](bold color_green)"
-version_format = "${raw}"
-
-[python]
-format = " [py](italic) [${symbol}${version}]($style)"
-symbol = "[⌉](bold color_accent)⌊ "
-version_format = "${raw}"
-style = "bold color_yellow"
-
-[ruby]
-format = " [rb](italic) [${symbol}${version}]($style)"
-symbol = "◆ "
-version_format = "${raw}"
-style = "bold color_red"
-
-[rust]
-format = " [rs](italic) [$symbol$version]($style)"
-symbol = "⊃ "
-version_format = "${raw}"
-style = "bold color_red"
-
-[package]
-format = " [pkg](italic dimmed) [$symbol$version]($style)"
-version_format = "${raw}"
-symbol = "◨ "
-style = "dimmed color_yellow italic bold"
-
-[swift]
-format = " [sw](italic) [${symbol}${version}]($style)"
-symbol = "◁ "
-style = "bold color_red"
-version_format = "${raw}"
-
-[aws]
-disabled = true
-format = " [aws](italic) [$symbol $profile $region]($style)"
-style = "bold color_accent"
-symbol = "▲ "
-
-[buf]
-symbol = "■ "
-format = " [buf](italic) [$symbol $version $buf_version]($style)"
-
-[c]
-symbol = "ℂ "
-format = " [$symbol($version(-$name))]($style)"
-
-[cpp]
-symbol = "ℂ "
-format = " [$symbol($version(-$name))]($style)"
-
-[conda]
-symbol = "◯ "
-format = " conda [$symbol$environment]($style)"
-
-[pixi]
-symbol = "■ "
-format = " pixi [$symbol$version ($environment )]($style)"
-
-[dart]
-symbol = "◁◅ "
-format = " dart [$symbol($version )]($style)"
-
-[docker_context]
-symbol = "◧ "
-format = " docker [$symbol$context]($style)"
-
-[elixir]
-symbol = "△ "
-format = " exs [$symbol $version OTP $otp_version ]($style)"
-
-[elm]
-symbol = "◩ "
-format = " elm [$symbol($version )]($style)"
-
-[golang]
-symbol = "∩ "
-format = " go [$symbol($version )]($style)"
-
-[haskell]
-symbol = "❯λ "
-format = " hs [$symbol($version )]($style)"
-
-[java]
-symbol = "∪ "
-format = " java [${symbol}(${version} )]($style)"
-
-[julia]
-symbol = "◎ "
-format = " jl [$symbol($version )]($style)"
+[line_break]
+disabled = false
 
 [memory_usage]
-symbol = "▪▫▪ "
-format = " mem [${ram}( ${swap})]($style)"
+disabled = true
+threshold = -1
+symbol = " "
+style = "bold dimmed green"
 
-[nim]
-symbol = "▴▲▴ "
-format = " nim [$symbol($version )]($style)"
+[time]
+disabled = true
+format = '🕙[\[ $time \]]($style) '
+time_format = "%T"
 
-[nix_shell]
-style = 'bold italic dimmed color_accent'
-symbol = '✶'
-format = '[$symbol nix⎪$state⎪]($style) [$name](italic color_dim)'
-impure_msg = '[⌽](bold dimmed color_red)'
-pure_msg = '[⌾](bold dimmed color_green)'
-unknown_msg = '[◌](bold dimmed color_yellow)'
+[username]
+style_user = "bold bg:252 fg:235"
+style_root = "red bold"
+format = "[](bold fg:252)[$user]($style)"
+disabled = false
+show_always = true
 
-[spack]
-symbol = "◇ "
-format = " spack [$symbol$environment]($style)"
+[directory]
+home_symbol = " "
+read_only = "  "
+style = "bg:255 fg:240"
+truncation_length = 2
+truncation_symbol = ".../"
+format = '[](bold fg:255)[󰉋 → $path]($style)[](bold fg:255)'
+
+
+[directory.substitutions]
+"Desktop" = "  "
+"Documents" = "  "
+"Downloads" = "  "
+"Music" = " 󰎈 "
+"Pictures" = "  "
+"Videos" = "  "
+"GitHub" = " 󰊤 "
+
+[cmd_duration]
+min_time = 0
+format = '[](bold fg:252)[󰪢 $duration](bold bg:252 fg:235)[](bold fg:252)'
+
+# >>> NOCTALIA STARSHIP PALETTE >>>
+# Noctalia Starship Palette
+# Generated by Noctalia - do not edit manually
+
+[palettes.noctalia]
+# Standard colors
+blue      = "#6dcbfa"
+red       = "#ed8274"
+green     = "#87d96c"
+yellow    = "#facc6e"
+cyan      = "#90e1c6"
+magenta   = "#dabafa"
+white     = "#c7c7c7"
+black     = "#171b24"
+
+# Extended palette (Catppuccin-compatible names)
+rosewater = "#ffd173"
+flamingo  = "#f28779"
+pink      = "#dfbfff"
+mauve     = "#dabafa"
+maroon    = "#f28779"
+peach     = "#ffd173"
+teal      = "#90e1c6"
+sky       = "#95e6cb"
+sapphire  = "#73d0ff"
+lavender  = "#dfbfff"
+
+# Text shades
+text      = "#d1d1c7"
+subtext1  = "#c7c7c7"
+subtext0  = "#686868"
+
+# Surface shades
+overlay2  = "#686868"
+overlay1  = "#686868"
+overlay0  = "#171b24"
+surface2  = "#171b24"
+surface1  = "#171b24"
+surface0  = "#1f2430"
+base      = "#1f2430"
+mantle    = "#1f2430"
+crust     = "#1f2430"
+# <<< NOCTALIA STARSHIP PALETTE <<<

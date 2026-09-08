@@ -69,4 +69,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "update.showReleaseNotes": false,
+  "material-code.primaryColor": "#010F27"
 }
